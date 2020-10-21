@@ -1,4 +1,4 @@
-package be.abis.hello.exercice1;
+package be.abis.execice.one;
 
 public class Client {
     public static void main(String[] args) {
