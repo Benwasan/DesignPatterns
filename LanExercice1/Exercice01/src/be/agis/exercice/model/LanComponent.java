@@ -4,6 +4,10 @@ public abstract class LanComponent {
     String address="";
     LanComponent nextComponent=null;
 
+    public LanComponent(String address) {
+        this.address = address;
+    }
+
     public String getAddress() {
         return address;
     }
