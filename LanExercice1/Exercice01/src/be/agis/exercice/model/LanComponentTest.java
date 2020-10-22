@@ -27,6 +27,6 @@ class LanComponentTest {
         Packet packet2 = new Packet(printServer2.getAddress(), "MyMessage2");
 
         workstation1.originate(packet1);
-
+        workstation1.send(packet1);
     }
 }
