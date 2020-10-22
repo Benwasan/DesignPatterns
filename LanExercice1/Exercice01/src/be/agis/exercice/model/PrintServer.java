@@ -17,6 +17,6 @@ public class PrintServer extends Node {
     }
 
     public void print(Packet packet) {
-        System.out.println("To: "+packet.getDestinationAddress() +" Content:"+packet.getContents());
+        System.out.println("PRINTED From : "+packet.getDestinationAddress() +" Content:"+packet.getContents());
     }
 }
