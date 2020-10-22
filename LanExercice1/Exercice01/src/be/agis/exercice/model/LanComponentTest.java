@@ -20,6 +20,7 @@ class LanComponentTest {
         printServer2.setNextComponent(node2);
         node2.setNextComponent(workstation3);
         workstation3.setNextComponent(printServer3);
+        printServer3.setNextComponent(workstation1);
 
         Packet packet1 = new Packet(printServer1.getAddress(), "MyMessage1");
         Packet packet2 = new Packet(printServer2.getAddress(), "MyMessage2");
