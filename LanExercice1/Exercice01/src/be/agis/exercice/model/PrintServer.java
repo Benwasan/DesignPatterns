@@ -1,14 +1,16 @@
 package be.agis.exercice.model;
 
-public class PrintServer extends Node {
+public class PrintServer extends PacketHandler {
+    private PrintingStrategy printing;
 
-    public PrintServer(String address) {
+    public PrintServer(String address, PrintingStrategy printing) {
         super(address);
+        this.printing = printing;
     }
 
     public void receive(Packet packet) {
         if (packet.getDestinationAddress().equals(this.address)) {
-            print(packet);
+            this.printing.print(packet);
         }
         else {
             LanComponent nextComponent = this.getNextComponent();
@@ -17,6 +19,11 @@ public class PrintServer extends Node {
     }
 
     public void print(Packet packet) {
-        System.out.println("PRINTED From : "+packet.getDestinationAddress() +" Content:"+packet.getContents());
+        this.printing.print(packet);
+    }
+
+    @Override
+    public void handle(Packet packet) {
+        handle(packet);
     }
 }

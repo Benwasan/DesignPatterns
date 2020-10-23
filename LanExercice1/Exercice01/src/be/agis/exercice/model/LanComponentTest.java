@@ -4,14 +4,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LanComponentTest {
     public static void main(String[] args) {
-        WorkStation workstation1 = new WorkStation("192.168.0.1");
-        PrintServer printServer1 = new PrintServer("192.168.0.2");
-        Node node1 = new Node("192.168.0.3");
-        WorkStation workstation2 = new WorkStation("192.168.0.4");
-        PrintServer printServer2 = new PrintServer("192.168.0.5");
-        Node node2 = new Node("192.168.0.6");
-        WorkStation workstation3 = new WorkStation("192.168.0.7");
-        PrintServer printServer3 = new PrintServer("192.168.0.8");
+        PrintingStrategy inkJetPrinter = new InkjetPrinter();
+        PrintingStrategy dPrinter = new DPrinter();
+        PrintingStrategy laserPrinter = new LaserPrinter();
+
+        LanComponent workstation1 = new WorkStation("192.168.0.1");
+        LanComponent printServer1 = new PrintServer("192.168.0.2", inkJetPrinter);
+        LanComponent node1 = new Node("192.168.0.3");
+        LanComponent workstation2 = new WorkStation("192.168.0.4");
+        LanComponent printServer2 = new PrintServer("192.168.0.5", dPrinter);
+        LanComponent node2 = new Node("192.168.0.6");
+        LanComponent workstation3 = new WorkStation("192.168.0.7");
+        LanComponent printServer3 = new PrintServer("192.168.0.8", laserPrinter);
 
         workstation1.setNextComponent(printServer1);
         printServer1.setNextComponent(node1);
